@@ -1,1 +1,1062 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNR Aerospace Club — Explore / Create / Launch</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --navy: #071a2d;
+    --navy2: #0c2943;
+    --navy3: #123a5a;
+    --silver: #c7ccd0;
+    --silver-dark: #7e8990;
+    --white: #f5f2e8;
+    --gold: #d9a52e;
+    --gold-light: #f2c95c;
+    --blue: #5b91bd;
+    --line: rgba(245,242,232,.34);
+    --muted: rgba(245,242,232,.68);
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: "IBM Plex Mono", monospace;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* Vintage paper / film texture */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: .13;
+    background-image:
+      radial-gradient(circle at 15% 25%, white 0 1px, transparent 1.5px),
+      radial-gradient(circle at 73% 66%, white 0 1px, transparent 1.5px),
+      radial-gradient(circle at 42% 82%, white 0 1px, transparent 1.5px);
+    background-size: 89px 103px, 137px 151px, 191px 177px;
+    mix-blend-mode: screen;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* ---------- NAVIGATION ---------- */
+
+  header {
+    position: relative;
+    z-index: 10;
+    min-height: 94px;
+    padding: 0 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+    background: rgba(7,26,45,.97);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .unr-mark {
+    position: relative;
+    width: 92px;
+    height: 47px;
+    border: 4px solid var(--silver);
+    border-top-color: transparent;
+    border-radius: 50%;
+    transform: rotate(-8deg);
+  }
+
+  .unr-mark::before {
+    content: "UNR";
+    position: absolute;
+    left: 7px;
+    top: -13px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: -.12em;
+    transform: rotate(8deg);
+  }
+
+  .brand-copy {
+    border-left: 1px solid var(--line);
+    padding-left: 18px;
+  }
+
+  .brand-name {
+    font-family: "Orbitron", sans-serif;
+    font-size: .92rem;
+    letter-spacing: .18em;
+    font-weight: 700;
+  }
+
+  .brand-sub {
+    color: var(--silver);
+    font-size: .58rem;
+    letter-spacing: .15em;
+    margin-top: 3px;
+  }
+
+  nav {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    font-family: "Orbitron", sans-serif;
+    font-size: .68rem;
+    letter-spacing: .08em;
+  }
+
+  nav a {
+    padding: 35px 0 31px;
+    position: relative;
+    color: var(--silver);
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--white);
+  }
+
+  nav a.active::after {
+    content: "";
+    position: absolute;
+    height: 4px;
+    background: var(--gold);
+    left: 0;
+    right: 0;
+    bottom: 23px;
+  }
+
+  /* ---------- HERO ---------- */
+
+  .hero {
+    position: relative;
+    min-height: 680px;
+    max-width: 1500px;
+    margin: auto;
+    padding: 80px 7vw 95px;
+    display: grid;
+    grid-template-columns: 48% 52%;
+    align-items: center;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  /* Blueprint-style vertical stripe */
+  .hero::before {
+    content: "";
+    position: absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 22px;
+    border-left: 5px solid var(--silver);
+    border-right: 4px solid var(--gold);
+    opacity: .85;
+  }
+
+  .hero::after {
+    content: "FLIGHT PROGRAM // 2026";
+    position: absolute;
+    right: 35px;
+    top: 30px;
+    color: var(--silver-dark);
+    font-size: .58rem;
+    letter-spacing: .16em;
+  }
+
+  .hero-copy {
+    position: relative;
+    z-index: 4;
+    padding-left: 5vw;
+  }
+
+  .eyebrow {
+    font-size: .82rem;
+    letter-spacing: .24em;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--silver);
+    margin-bottom: 25px;
+  }
+
+  .eyebrow span {
+    color: var(--gold-light);
+    margin: 0 8px;
+  }
+
+  h1 {
+    font-family: "Orbitron", sans-serif;
+    font-weight: 900;
+    font-size: clamp(3.2rem, 6.4vw, 7rem);
+    line-height: .87;
+    letter-spacing: -.06em;
+    color: var(--white);
+    margin-bottom: 30px;
+  }
+
+  h1 .outline {
+    color: transparent;
+    -webkit-text-stroke: 2px var(--silver);
+  }
+
+  h1 .gold {
+    color: var(--gold-light);
+  }
+
+  .tagline {
+    display: inline-block;
+    border-top: 3px solid var(--gold);
+    padding-top: 13px;
+    color: var(--silver);
+    font-size: .9rem;
+    letter-spacing: .15em;
+    font-style: italic;
+    margin-bottom: 23px;
+  }
+
+  .intro {
+    max-width: 535px;
+    color: var(--muted);
+    font-size: .82rem;
+    line-height: 1.9;
+    margin-bottom: 31px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 13px 22px;
+    border: 2px solid var(--gold);
+    color: var(--white);
+    font-family: "Orbitron", sans-serif;
+    font-weight: 700;
+    font-size: .68rem;
+    letter-spacing: .1em;
+    transition: .2s ease;
+  }
+
+  .btn:hover {
+    color: var(--navy);
+    background: var(--gold);
+    transform: translateY(-2px);
+  }
+
+  .btn.secondary {
+    border-color: var(--silver);
+  }
+
+  .btn.secondary:hover {
+    background: var(--silver);
+  }
+
+  /* ---------- HERO TECH ART ---------- */
+
+  .hero-art {
+    min-height: 510px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .technical-orbit {
+    position: absolute;
+    width: 570px;
+    height: 570px;
+    border: 1px solid rgba(199,204,208,.35);
+    border-radius: 50%;
+  }
+
+  .technical-orbit::before,
+  .technical-orbit::after {
+    content: "";
+    position: absolute;
+    inset: 35px;
+    border: 1px dashed rgba(217,165,46,.42);
+    border-radius: 50%;
+  }
+
+  .technical-orbit::after {
+    inset: 85px;
+    border-style: solid;
+    border-color: rgba(91,145,189,.35);
+  }
+
+  .earth {
+    position: relative;
+    width: min(410px, 65vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle at 32% 27%, rgba(255,255,255,.35), transparent 7%),
+      radial-gradient(ellipse at 42% 38%, #637e56 0 11%, transparent 12%),
+      radial-gradient(ellipse at 63% 48%, #6d8a58 0 14%, transparent 15%),
+      radial-gradient(ellipse at 37% 66%, #71895c 0 9%, transparent 10%),
+      radial-gradient(ellipse at 70% 70%, #536f50 0 8%, transparent 9%),
+      radial-gradient(circle at 44% 42%, #4c88b6 0 27%, #245e89 56%, #092f52 100%);
+    box-shadow:
+      inset -40px -20px 60px rgba(0,0,0,.7),
+      inset 20px 15px 30px rgba(255,255,255,.13),
+      0 0 45px rgba(91,145,189,.3);
+    overflow: visible;
+  }
+
+  .earth::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent 0 7px,
+        rgba(255,255,255,.035) 8px
+      );
+  }
+
+  .earth::after {
+    content: "";
+    position: absolute;
+    inset: -11px;
+    border: 3px solid rgba(199,204,208,.38);
+    border-radius: 50%;
+  }
+
+  .earth-label {
+    position: absolute;
+    top: -30px;
+    right: 25px;
+    color: var(--silver);
+    font-size: .55rem;
+    letter-spacing: .12em;
+    line-height: 1.7;
+  }
+
+  .orbit-line {
+    position: absolute;
+    width: 125%;
+    height: 38%;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    transform: rotate(-18deg);
+  }
+
+  .orbit-line.two {
+    width: 143%;
+    height: 53%;
+    border-color: rgba(199,204,208,.65);
+    transform: rotate(17deg);
+  }
+
+  .star {
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: var(--white);
+    transform: rotate(45deg);
+    box-shadow: 0 0 13px var(--white);
+  }
+
+  .star.one { top: 12%; right: 11%; }
+  .star.two { top: 20%; left: 8%; width: 6px; height: 6px; }
+  .star.three { bottom: 13%; right: 18%; width: 5px; height: 5px; }
+
+  .rocket {
+    position: absolute;
+    width: 34px;
+    height: 125px;
+    right: 13%;
+    top: 6%;
+    transform: rotate(7deg);
+    z-index: 3;
+  }
+
+  .rocket-body {
+    position: absolute;
+    width: 22px;
+    height: 92px;
+    left: 6px;
+    top: 12px;
+    background: linear-gradient(90deg, #707b81, #eef0eb, #7c858a);
+    clip-path: polygon(50% 0, 100% 24%, 87% 100%, 13% 100%, 0 24%);
+  }
+
+  .rocket-nose {
+    position: absolute;
+    left: 9px;
+    top: 0;
+    width: 16px;
+    height: 28px;
+    background: var(--silver);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  }
+
+  .rocket-window {
+    position: absolute;
+    left: 10px;
+    top: 36px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 2px solid var(--gold);
+  }
+
+  .flame {
+    position: absolute;
+    left: 7px;
+    top: 96px;
+    width: 20px;
+    height: 42px;
+    background: linear-gradient(var(--gold-light), #e56b32, transparent);
+    clip-path: polygon(35% 0, 75% 0, 100% 100%, 50% 73%, 0 100%);
+    filter: drop-shadow(0 0 8px var(--gold));
+  }
+
+  /* ---------- SECTION ---------- */
+
+  .section {
+    max-width: 1400px;
+    margin: auto;
+    padding: 75px 6vw;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  .section-title .kicker {
+    color: var(--gold-light);
+    font-size: .62rem;
+    letter-spacing: .28em;
+    margin-bottom: 9px;
+  }
+
+  .section-title h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(1.7rem, 4vw, 3rem);
+    letter-spacing: .03em;
+  }
+
+  /* ---------- TECHNICAL CARDS ---------- */
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .feature {
+    min-height: 270px;
+    padding: 34px 25px;
+    border-right: 1px solid var(--line);
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,.025), transparent);
+  }
+
+  .feature:last-child { border-right: none; }
+
+  .feature-number {
+    color: var(--gold);
+    font-size: .6rem;
+    letter-spacing: .15em;
+    margin-bottom: 28px;
+  }
+
+  .feature-icon {
+    height: 68px;
+    margin-bottom: 19px;
+    color: var(--silver);
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .feature h3 {
+    color: var(--gold-light);
+    font-family: "Orbitron", sans-serif;
+    font-size: .82rem;
+    letter-spacing: .08em;
+    margin-bottom: 13px;
+  }
+
+  .feature p {
+    color: var(--muted);
+    font-size: .7rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .specs {
+    color: var(--silver-dark);
+    font-size: .54rem;
+    letter-spacing: .08em;
+  }
+
+  /* ---------- CASSETTE / MISSION ---------- */
+
+  .mission {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .blueprint {
+    min-height: 430px;
+    border: 1px solid var(--line);
+    background:
+      linear-gradient(rgba(91,145,189,.12) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,145,189,.12) 1px, transparent 1px),
+      var(--navy2);
+    background-size: 28px 28px;
+    padding: 28px;
+    position: relative;
+  }
+
+  .blueprint::before {
+    content: "UNR AEROSPACE // ENGINEERING DRAWING";
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    color: var(--silver-dark);
+    font-size: .52rem;
+    letter-spacing: .1em;
+  }
+
+  .rocket-drawing {
+    position: absolute;
+    left: 18%;
+    top: 18%;
+    width: 105px;
+    height: 290px;
+    border: 2px solid var(--silver);
+    clip-path: polygon(50% 0, 85% 18%, 100% 100%, 67% 100%, 50% 86%, 33% 100%, 0 100%, 15% 18%);
+    opacity: .9;
+  }
+
+  .rocket-drawing::before,
+  .rocket-drawing::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 1px;
+    background: var(--silver);
+    transform: translateX(-50%);
+  }
+
+  .rocket-drawing::before { top: 0; height: 100%; }
+  .rocket-drawing::after {
+    top: 42%;
+    width: 75%;
+    height: 1px;
+  }
+
+  .drawing-label {
+    position: absolute;
+    left: 58%;
+    top: 28%;
+    color: var(--silver);
+    font-size: .58rem;
+    line-height: 2;
+  }
+
+  .drawing-label b {
+    color: var(--gold-light);
+  }
+
+  .mission-copy .kicker {
+    color: var(--gold-light);
+    font-size: .64rem;
+    letter-spacing: .25em;
+    margin-bottom: 12px;
+  }
+
+  .mission-copy h2 {
+    font-family: "Orbitron", sans-serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+
+  .mission-copy h2 span {
+    color: var(--gold-light);
+  }
+
+  .mission-copy p {
+    color: var(--muted);
+    font-size: .78rem;
+    line-height: 1.9;
+    margin-bottom: 20px;
+  }
+
+  /* ---------- CASSETTE ---------- */
+
+  .cassette {
+    margin-top: 32px;
+    max-width: 470px;
+    aspect-ratio: 1.6;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #8e979b, #404a50 48%, #242d32);
+    border: 3px solid #aeb4b6;
+    box-shadow: 0 18px 35px rgba(0,0,0,.4);
+    padding: 27px;
+    position: relative;
+  }
+
+  .cassette-label {
+    height: 100%;
+    background: var(--navy);
+    border: 2px solid var(--silver);
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cassette-label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 18%;
+    height: 7px;
+    background: var(--gold);
+  }
+
+  .cassette-title {
+    font-family: "Orbitron", sans-serif;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+  }
+
+  .cassette-sub {
+    color: var(--silver);
+    font-size: .55rem;
+    letter-spacing: .12em;
+    margin-top: 8px;
+  }
+
+  .reel {
+    position: absolute;
+    bottom: -9px;
+    width: 52px;
+    height: 52px;
+    border: 8px solid #222a2e;
+    border-radius: 50%;
+    background: #aeb4b6;
+    box-shadow: inset 0 0 0 7px #545e63;
+  }
+
+  .reel.left { left: 15%; }
+  .reel.right { right: 15%; }
+
+  /* ---------- STATUS STRIP ---------- */
+
+  .status {
+    max-width: 1400px;
+    margin: auto;
+    padding: 19px 6vw;
+    border: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: var(--silver);
+    font-size: .58rem;
+    letter-spacing: .1em;
+  }
+
+  .status strong { color: var(--gold-light); }
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    position: relative;
+    max-width: 1400px;
+    margin: auto;
+    border: 1px solid var(--line);
+    border-bottom: none;
+    padding: 60px 6vw 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .mountains {
+    height: 120px;
+    margin-top: 40px;
+    background:
+      linear-gradient(135deg, transparent 49%, var(--silver-dark) 50% 51%, transparent 52%) 0 100% / 22% 100%,
+      linear-gradient(45deg, transparent 49%, var(--silver-dark) 50% 51%, transparent 52%) 11% 100% / 22% 100%,
+      linear-gradient(135deg, transparent 49%, var(--navy3) 50% 51%, transparent 52%) 35% 100% / 30% 100%,
+      linear-gradient(45deg, transparent 49%, var(--navy3) 50% 51%, transparent 52%) 50% 100% / 30% 100%;
+    background-repeat: no-repeat;
+    opacity: .8;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .footer-brand {
+    font-family: "Orbitron", sans-serif;
+    color: var(--white);
+    font-weight: 800;
+    letter-spacing: .2em;
+    font-size: 1rem;
+  }
+
+  .footer-copy {
+    color: var(--silver-dark);
+    font-size: .56rem;
+    letter-spacing: .14em;
+    margin-top: 8px;
+  }
+
+  .footer-band {
+    height: 6px;
+    margin: 0 -6vw;
+    background: linear-gradient(90deg, var(--navy3), var(--gold), var(--silver), var(--gold), var(--navy3));
+  }
+
+  .coordinates {
+    position: absolute;
+    right: 5%;
+    bottom: 70px;
+    color: var(--silver);
+    text-align: right;
+    font-size: .52rem;
+    line-height: 1.8;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  @media (max-width: 950px) {
+    header {
+      flex-direction: column;
+      gap: 12px;
+      padding: 18px 5vw;
+    }
+
+    nav {
+      width: 100%;
+      justify-content: center;
+    }
+
+    nav a { padding: 5px 0; }
+    nav a.active::after { bottom: -4px; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      padding-top: 65px;
+    }
+
+    .hero-copy {
+      text-align: center;
+      padding-left: 0;
+      margin: auto;
+    }
+
+    .intro { margin-left: auto; margin-right: auto; }
+    .buttons { justify-content: center; }
+
+    .hero-art {
+      min-height: 480px;
+      margin-top: 20px;
+    }
+
+    .features { grid-template-columns: 1fr 1fr; }
+
+    .feature:nth-child(2) { border-right: none; }
+    .feature:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+
+    .mission { grid-template-columns: 1fr; }
+    .blueprint { max-width: 650px; margin: auto; width: 100%; }
+    .mission-copy { max-width: 650px; margin: auto; }
+  }
+
+  @media (max-width: 560px) {
+    .brand-copy { display: none; }
+
+    .unr-mark { width: 75px; }
+
+    nav {
+      gap: 1rem;
+      font-size: .58rem;
+    }
+
+    .hero {
+      padding-left: 8vw;
+      padding-right: 8vw;
+    }
+
+    h1 { font-size: 3.15rem; }
+
+    .hero-art { min-height: 350px; }
+
+    .earth { width: 275px; }
+    .technical-orbit { width: 340px; height: 340px; }
+
+    .rocket { right: 5%; }
+
+    .features { grid-template-columns: 1fr; }
+
+    .feature,
+    .feature:nth-child(2) {
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .feature:last-child { border-bottom: none; }
+
+    .coordinates { display: none; }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="/">
+    <div class="unr-mark"></div>
+    <div class="brand-copy">
+      <div class="brand-name">AEROSPACE CLUB</div>
+      <div class="brand-sub">UNIVERSITY OF NEVADA, RENO</div>
+    </div>
+  </a>
+
+  <nav>
+    <a class="active" href="/">HOME</a>
+    <a href="/projects/">PROJECTS</a>
+    <a href="/resume/">RESUME</a>
+    <a href="#mission">ABOUT</a>
+    <a href="#mission">JOIN</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="hero-copy">
+    <div class="eyebrow">
+      BUILD <span>✦</span> INNOVATE <span>✦</span> EXPLORE
+    </div>
+
+    <h1>
+      <span class="outline">UNR</span><br>
+      AEROSPACE<br>
+      <span class="gold">CLUB</span>
+    </h1>
+
+    <div class="tagline">
+      REAL PROJECTS. HANDS-ON LEARNING. A HIGHER ORBIT.
+    </div>
+
+    <p class="intro">
+      The University of Nevada, Reno Aerospace Club is a student-led
+      organization focused on designing, building, testing, and launching
+      aerospace hardware. We turn engineering concepts into things you can
+      actually hold, test, break, rebuild, and fly.
+    </p>
+
+    <div class="buttons">
+      <a class="btn" href="#mission">EXPLORE THE CLUB →</a>
+      <a class="btn secondary" href="/projects/">VIEW PROJECTS</a>
+    </div>
+  </div>
+
+  <div class="hero-art">
+    <div class="technical-orbit"></div>
+
+    <div class="earth">
+      <div class="orbit-line"></div>
+      <div class="orbit-line two"></div>
+
+      <div class="earth-label">
+        EARTH<br>
+        39.5296° N<br>
+        119.8138° W
+      </div>
+    </div>
+
+    <div class="rocket">
+      <div class="rocket-nose"></div>
+      <div class="rocket-body"></div>
+      <div class="rocket-window"></div>
+      <div class="flame"></div>
+    </div>
+
+    <div class="star one"></div>
+    <div class="star two"></div>
+    <div class="star three"></div>
+  </div>
+
+</section>
+
+<div class="status">
+  <span>MISSION STATUS: <strong>ACTIVE</strong></span>
+  <span>PROGRAM: <strong>STUDENT AEROSPACE</strong></span>
+  <span>BASE: <strong>RENO, NEVADA</strong></span>
+  <span>OBJECTIVE: <strong>BUILD / TEST / LAUNCH</strong></span>
+</div>
+
+<section class="section">
+
+  <div class="section-title">
+    <div class="kicker">THE FLIGHT PROGRAM</div>
+    <h2>ENGINEERING FROM THE GROUND UP</h2>
+  </div>
+
+  <div class="features">
+
+    <article class="feature">
+      <div class="feature-number">01 // PROPULSION & FLIGHT</div>
+      <div class="feature-icon">△</div>
+      <h3>ROCKETRY</h3>
+      <p>
+        Design, manufacture, test, and launch rockets while learning
+        propulsion, structures, stability, recovery, and flight operations.
+      </p>
+      <div class="specs">DESIGN / BUILD / TEST / LAUNCH</div>
+    </article>
+
+    <article class="feature">
+      <div class="feature-number">02 // AVIONICS & CONTROL</div>
+      <div class="feature-icon">▣</div>
+      <h3>ELECTRONICS</h3>
+      <p>
+        Flight computers, sensors, telemetry, embedded systems,
+        instrumentation, power systems, and controls.
+      </p>
+      <div class="specs">SENSE / PROCESS / LOG / TRANSMIT</div>
+    </article>
+
+    <article class="feature">
+      <div class="feature-number">03 // MANUFACTURING</div>
+      <div class="feature-icon">⚙</div>
+      <h3>FABRICATION</h3>
+      <p>
+        CNC machining, 3D printing, composites, laser cutting,
+        woodworking, assembly, and practical manufacturing.
+      </p>
+      <div class="specs">DESIGN / MAKE / ITERATE</div>
+    </article>
+
+    <article class="feature">
+      <div class="feature-number">04 // PEOPLE & PROCESS</div>
+      <div class="feature-icon">✦</div>
+      <h3>COMMUNITY</h3>
+      <p>
+        A team where students learn from one another through projects,
+        workshops, launches, and engineering challenges.
+      </p>
+      <div class="specs">LEARN / SHARE / BUILD</div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section mission" id="mission">
+
+  <div class="blueprint">
+    <div class="rocket-drawing"></div>
+
+    <div class="drawing-label">
+      <b>UNR AEROSPACE</b><br>
+      VEHICLE STUDY<br><br>
+      CONFIGURATION: A<br>
+      SCALE: 1:10<br>
+      MATERIAL: AL / CF<br><br>
+      STATUS: DEVELOPMENT<br>
+      REV: 02
+    </div>
+
+    <div style="position:absolute; bottom:18px; left:22px; color:#7e8990; font-size:.52rem; letter-spacing:.1em;">
+      ENGINEERING DRAWING // DO NOT SCALE
+    </div>
+  </div>
+
+  <div class="mission-copy">
+    <div class="kicker">OUR MISSION</div>
+    <h2>SMALL TEAM.<br><span>BIG IMPACT.</span></h2>
+
+    <p>
+      Aerospace engineering is a team sport. Propulsion, structures,
+      electronics, software, manufacturing, testing, and operations all
+      have to work together.
+    </p>
+
+    <p>
+      Our goal is to give students the opportunity to work on real
+      engineering problems and gain experience that reaches far beyond
+      the classroom.
+    </p>
+
+    <a class="btn" href="/projects/">SEE WHAT WE'RE BUILDING →</a>
+
+    <div class="cassette">
+      <div class="cassette-label">
+        <div class="cassette-title">UNR AEROSPACE // SIDE A</div>
+        <div class="cassette-sub">SAME DREAMS. NEW TECHNOLOGY.</div>
+        <div class="reel left"></div>
+        <div class="reel right"></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-brand">UNR AEROSPACE CLUB</div>
+  <div class="footer-copy">
+    UNIVERSITY OF NEVADA, RENO · EXPLORE / CREATE / LAUNCH
+  </div>
+
+  <div class="coordinates">
+    BASE: RENO, NV<br>
+    39.5296° N<br>
+    119.8138° W
+  </div>
+
+  <div class="mountains"></div>
+
+  <div class="footer-band"></div>
+</footer>
+
+</body>
+</html>
 
