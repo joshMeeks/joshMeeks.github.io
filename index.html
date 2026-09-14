@@ -13,6 +13,7 @@
     --ink: #2B2926;
     --ink-soft: #55504A;
     --hairline: #DFDAD1;
+    --navy: #1B3A5C;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,14 +25,13 @@
     line-height: 1.6;
   }
 
-  /* Banner */
+  /* Banner — 1584x396 (LinkedIn banner ratio, 4:1) */
   .banner {
     width: 100%;
-    height: 38vh;
-    min-height: 220px;
-    max-height: 380px;
+    aspect-ratio: 4 / 1;
     object-fit: cover;
     display: block;
+    border-bottom: 8px solid var(--navy);
   }
 
   /* Title directly under banner, centered */
@@ -49,6 +49,7 @@
     color: var(--ink-soft);
     font-size: 1rem;
     letter-spacing: 0.02em;
+    line-height: 1.4;
     padding-bottom: 2rem;
   }
 
@@ -93,4 +94,3 @@
 
 </body>
 </html>
-
