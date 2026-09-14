@@ -34,6 +34,35 @@
     border-bottom: 8px solid var(--navy);
   }
 
+  /* Buttons row, between the banner divider and the name */
+  .button-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 2rem 1.5rem 0;
+  }
+
+  .btn {
+    display: inline-block;
+    border: 3px solid var(--navy);
+    border-radius: 8px;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    padding: 0.7rem 2.25rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .btn:hover {
+    background: var(--navy);
+    color: var(--cream);
+  }
+
   /* Title directly under banner, centered */
   h1 {
     font-family: 'Libre Baskerville', serif;
@@ -81,6 +110,11 @@
 <body>
 
   <img class="banner" src="banner.jpg" alt="Banner image">
+
+  <nav class="button-row">
+    <a class="btn" href="projects.html">Projects</a>
+    <a class="btn" href="resume.html">Resume</a>
+  </nav>
 
   <h1>Joshua Meeks</h1>
   <p class="subtitle">Vice President - UNR Aerospace Club<br>B.S. Mechanical Engineering - Graduating December 2026</p>
