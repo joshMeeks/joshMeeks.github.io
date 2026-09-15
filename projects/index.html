@@ -3,49 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Joshua Meeks — Projects</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-  :root {
+
+:root {
     --cream: #FAF8F4;
     --ink: #2B2926;
     --ink-soft: #55504A;
     --hairline: #DFDAD1;
     --navy: #1B3A5C;
-  }
+}
 
-  * {
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
+}
 
-  body {
+body {
     background: var(--cream);
     color: var(--ink);
     font-family: 'Source Sans 3', sans-serif;
     line-height: 1.6;
-  }
+}
 
-  .top-bar {
+.top-bar {
     width: 100%;
     height: 16px;
     background: var(--navy);
     display: block;
-  }
+}
 
-  .button-row {
+/* Title + Home button */
+.page-header {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 1rem;
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    padding: 2rem 1.5rem 0;
-  }
+    align-items: center;
+    gap: 1.25rem;
+}
 
-  .btn {
+h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    text-align: left;
+    color: var(--ink);
+}
+
+/* General button styling */
+.btn {
     display: inline-block;
     border: 3px solid var(--navy);
     border-radius: 8px;
@@ -56,209 +71,200 @@
     font-size: 1rem;
     letter-spacing: 0.02em;
     text-decoration: none;
-    padding: 0.7rem 2.25rem;
-    transition: background 0.15s ease, color 0.15s ease;
-  }
 
-  .btn:hover {
+    /* 25% smaller than original */
+    padding: 0.525rem 1.6875rem;
+
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover {
     background: var(--navy);
     color: var(--cream);
-  }
+}
 
-  h1 {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 700;
-    font-size: clamp(1.75rem, 4vw, 2.75rem);
-    text-align: center;
-    color: var(--ink);
-    padding: 2rem 1.5rem 1rem;
-  }
-
-  main {
+main {
     max-width: 960px;
     margin: 0 auto;
     padding: 1rem 1.5rem 4rem;
-  }
+}
 
-  .project-row {
+.project-row {
     display: flex;
     align-items: flex-start;
     gap: 2.5rem;
     padding: 2.5rem 0;
     border-bottom: 1px solid var(--hairline);
-  }
+}
 
-  .project-row:last-child {
+.project-row:last-child {
     border-bottom: none;
-  }
+}
 
-  .project-image {
+.project-image {
     width: 40%;
     flex-shrink: 0;
     aspect-ratio: 4 / 3;
     object-fit: cover;
     border-radius: 8px;
     display: block;
-  }
+}
 
-  .project-content {
+.project-content {
     width: 60%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.9rem;
-  }
+}
 
-  /* Title and Learn More button on the same line */
-  .project-title-row {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-
-  .project-content h2 {
+.project-content h2 {
     font-family: 'Libre Baskerville', serif;
     font-weight: 700;
     font-size: 1.4rem;
     color: var(--ink);
-  }
+}
 
-  .project-content p {
+.project-content p {
     font-size: 1rem;
     color: var(--ink);
-  }
+}
 
-  /* Learn More buttons reduced by 25% */
-  .learn-more {
-    font-size: 0.75rem;
-    padding: 0.525rem 1.6875rem;
-    border-width: 2px;
-    border-radius: 6px;
-    flex-shrink: 0;
-  }
+/* Stack image above content on narrow screens */
+@media (max-width: 640px) {
 
-  /* Stack image above content on narrow screens */
-  @media (max-width: 640px) {
+    .page-header {
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .page-header .btn {
+        font-size: 0.9rem;
+        padding: 0.4rem 1.25rem;
+    }
+
     .project-row {
-      flex-direction: column;
-      gap: 1.25rem;
+        flex-direction: column;
+        gap: 1.25rem;
     }
 
     .project-image,
     .project-content {
-      width: 100%;
+        width: 100%;
     }
+}
 
-    .project-title-row {
-      align-items: flex-start;
-    }
-
-    .project-content h2 {
-      font-size: 1.2rem;
-    }
-
-    .learn-more {
-      font-size: 0.7rem;
-      padding: 0.45rem 1.25rem;
-    }
-  }
 </style>
 </head>
 
 <body>
 
-  <div class="top-bar"></div>
+<div class="top-bar"></div>
 
-  <nav class="button-row">
+<header class="page-header">
+    <h1>Projects</h1>
     <a class="btn" href="/">Home</a>
-  </nav>
+</header>
 
-  <h1>Projects</h1>
-
-  <main>
+<main>
 
     <div class="project-row">
-      <img class="project-image" src="PCBReflowOven.jpg" alt="PCB Reflow Oven">
+        <img class="project-image"
+             src="PCBReflowOven.jpg"
+             alt="PCB Reflow Oven">
 
-      <div class="project-content">
-        <div class="project-title-row">
-          <h2>PCB Reflow Oven</h2>
-          <a class="btn learn-more" href="PCBReflowOven.html">Learn More</a>
+        <div class="project-content">
+            <h2>PCB Reflow Oven</h2>
+
+            <p>
+                A brief description of the PCB Reflow Oven project goes here —
+                what it is, what problem it solves, and any standout details
+                worth a quick mention.
+            </p>
+
+            <a class="btn" href="PCBReflowOven.html">Learn More</a>
         </div>
-
-        <p>
-          A brief description of the PCB Reflow Oven project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
-        </p>
-      </div>
     </div>
 
 
     <div class="project-row">
-      <img class="project-image" src="L1FlightComputer.jpg" alt="L1 Flight Computer">
+        <img class="project-image"
+             src="L1FlightComputer.jpg"
+             alt="L1 Flight Computer">
 
-      <div class="project-content">
-        <div class="project-title-row">
-          <h2>L1 Flight Computer</h2>
-          <a class="btn learn-more" href="UNRLiquidRocketTeam.html">Learn More</a>
+        <div class="project-content">
+            <h2>L1 Flight Computer</h2>
+
+            <p>
+                A brief description of the L1 Flight Computer project goes here —
+                what it is, what problem it solves, and any standout details
+                worth a quick mention.
+            </p>
+
+            <a class="btn" href="UNRLiquidRocketTeam.html">Learn More</a>
         </div>
-
-        <p>
-          A brief description of the L1 Flight Computer project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
-        </p>
-      </div>
     </div>
 
 
     <div class="project-row">
-      <img class="project-image" src="LiquidRocket.jpg" alt="UNR Liquid Rocket Team">
+        <img class="project-image"
+             src="LiquidRocket.jpg"
+             alt="UNR Liquid Rocket Team">
 
-      <div class="project-content">
-        <div class="project-title-row">
-          <h2>UNR Liquid Rocket Team</h2>
-          <a class="btn learn-more" href="UNRLiquidRocketTeam.html">Learn More</a>
+        <div class="project-content">
+            <h2>UNR Liquid Rocket Team</h2>
+
+            <p>
+                A brief description of the PCB Reflow Oven project goes here —
+                what it is, what problem it solves, and any standout details
+                worth a quick mention.
+            </p>
+
+            <a class="btn" href="UNRLiquidRocketTeam.html">Learn More</a>
         </div>
-
-        <p>
-          A brief description of the PCB Reflow Oven project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
-        </p>
-      </div>
     </div>
 
 
     <div class="project-row">
-      <img class="project-image" src="KNSOProp.jpg" alt="KNSO / KNSB Solid Rocket Propellants">
+        <img class="project-image"
+             src="KNSOProp.jpg"
+             alt="KNSO / KNSB Solid Rocket Propellants">
 
-      <div class="project-content">
-        <div class="project-title-row">
-          <h2>KNSO / KNSB Solid Rocket Propellants</h2>
-          <a class="btn learn-more" href="KNSOKNSBSolidRocketPropellants.html">Learn More</a>
+        <div class="project-content">
+            <h2>KNSO / KNSB Solid Rocket Propellants</h2>
+
+            <p>
+                A brief description of the KNSO / KNSB Solid Rocket Propellants
+                project goes here — what it is, what problem it solves, and any
+                standout details worth a quick mention.
+            </p>
+
+            <a class="btn" href="KNSOKNSBSolidRocketPropellants.html">
+                Learn More
+            </a>
         </div>
-
-        <p>
-          A brief description of the KNSO / KNSB Solid Rocket Propellants project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
-        </p>
-      </div>
     </div>
 
 
     <div class="project-row">
-      <img class="project-image" src="L1L2Rocket.jpg" alt="L1 / L2 Rocket">
+        <img class="project-image"
+             src="L1L2Rocket.jpg"
+             alt="L1 / L2 Rocket">
 
-      <div class="project-content">
-        <div class="project-title-row">
-          <h2>L1 / L2 Rocket</h2>
-          <a class="btn learn-more" href="L1L2Rocket.html">Learn More</a>
+        <div class="project-content">
+            <h2>L1 / L2 Rocket</h2>
+
+            <p>
+                A brief description of the L1 / L2 Rocket project goes here —
+                what it is, what problem it solves, and any standout details
+                worth a quick mention.
+            </p>
+
+            <a class="btn" href="L1L2Rocket.html">Learn More</a>
         </div>
-
-        <p>
-          A brief description of the L1 / L2 Rocket project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
-        </p>
-      </div>
     </div>
 
-  </main>
+</main>
 
 </body>
 </html>
