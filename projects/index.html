@@ -59,7 +59,7 @@ h1 {
     color: var(--ink);
 }
 
-/* Smaller buttons */
+/* Smaller Learn More buttons */
 .btn {
     display: inline-block;
     border: 2px solid var(--navy);
@@ -78,6 +78,14 @@ h1 {
 .btn:hover {
     background: var(--navy);
     color: var(--cream);
+}
+
+/* Original-size Home button */
+.home-btn {
+    border: 3px solid var(--navy);
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.7rem 2.25rem;
 }
 
 main {
@@ -135,11 +143,6 @@ main {
         gap: 0.75rem;
     }
 
-    .page-header .btn {
-        font-size: 0.7rem;
-        padding: 0.35rem 1rem;
-    }
-
     .project-row {
         flex-direction: column;
         gap: 1.25rem;
@@ -160,7 +163,7 @@ main {
 
 <header class="page-header">
     <h1>Projects</h1>
-    <a class="btn" href="/">Home</a>
+    <a class="btn home-btn" href="/">Home</a>
 </header>
 
 <main>
