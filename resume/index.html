@@ -3,44 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Joshua Meeks — Resume</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
-  :root {
+
+:root {
     --cream: #FAF8F4;
     --ink: #2B2926;
     --ink-soft: #55504A;
     --hairline: #DFDAD1;
     --navy: #1B3A5C;
-  }
+}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-  body {
+body {
     background: var(--cream);
     color: var(--ink);
     font-family: 'Source Sans 3', sans-serif;
     line-height: 1.6;
-  }
+}
 
-  .top-bar {
+.top-bar {
     width: 100%;
     height: 16px;
     background: var(--navy);
     display: block;
-  }
+}
 
-  .button-row {
+/* Title + Home button */
+.page-header {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 1rem;
     display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    padding: 2rem 1.5rem 0;
-  }
+    align-items: center;
+    justify-content: space-between;
+}
 
-  .btn {
+h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    text-align: left;
+    color: var(--ink);
+}
+
+/* Original-size Home button */
+.home-btn {
+    border: 3px solid var(--navy);
+    border-radius: 8px;
+    font-size: 1rem;
+    padding: 0.7rem 2.25rem;
+}
+
+/* Button styling */
+.btn {
     display: inline-block;
     border: 3px solid var(--navy);
     border-radius: 8px;
@@ -53,67 +81,76 @@
     text-decoration: none;
     padding: 0.7rem 2.25rem;
     transition: background 0.15s ease, color 0.15s ease;
-  }
+}
 
-  .btn:hover {
+.btn:hover {
     background: var(--navy);
     color: var(--cream);
-  }
+}
 
-  h1 {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 700;
-    font-size: clamp(1.75rem, 4vw, 2.75rem);
-    text-align: center;
-    color: var(--ink);
-    padding: 2rem 1.5rem 2rem;
-  }
-
-  main {
+main {
     max-width: 900px;
     margin: 0 auto;
-    padding: 0 1.5rem 4rem;
-  }
+    padding: 1rem 1.5rem 4rem;
+}
 
-  .pdf-embed {
+.pdf-embed {
     width: 100%;
     height: 1100px;
     border: 3px solid var(--navy);
     border-radius: 8px;
     display: block;
-  }
+}
 
-  .pdf-fallback {
+.pdf-fallback {
     text-align: center;
     padding: 2rem;
-  }
+}
 
-  .pdf-fallback a {
+.pdf-fallback a {
     color: var(--navy);
     font-weight: 600;
-  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+
+    .page-header {
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+}
+
 </style>
 </head>
+
 <body>
 
-  <div class="top-bar"></div>
+<div class="top-bar"></div>
 
-  <nav class="button-row">
-    <a class="btn" href="/">Home</a>
-  </nav>
+<header class="page-header">
+    <h1>Resume</h1>
+    <a class="btn home-btn" href="/">Home</a>
+</header>
 
-  <h1>Resume</h1>
+<main>
 
-  <main>
     <iframe
-      class="pdf-embed"
-      src="JoshMeeksResume.pdf"
-      title="Joshua Meeks Resume">
-      <p class="pdf-fallback">Your browser doesn't support embedded PDFs.
-         <a href="JoshMeeksResume.pdf">Download the resume instead.</a>
-      </p>
+        class="pdf-embed"
+        src="JoshMeeksResume.pdf"
+        title="Joshua Meeks Resume">
+
+        <p class="pdf-fallback">
+            Your browser doesn't support embedded PDFs.
+            <a href="JoshMeeksResume.pdf">
+                Download the resume instead.
+            </a>
+        </p>
+
     </iframe>
-  </main>
+
+</main>
 
 </body>
 </html>
