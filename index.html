@@ -64,47 +64,49 @@
   }
 
   /* Title directly under banner, centered */
-  h1 {
-    font-family: 'Libre Baskerville', serif;
-    font-weight: 700;
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    text-align: center;
-    color: var(--ink);
-    padding: 2.5rem 1.5rem 0.5rem;
-  }
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 3rem 5rem;
+}
 
-  .subtitle {
-    text-align: center;
-    color: var(--ink-soft);
-    font-size: 1rem;
-    letter-spacing: 0.02em;
-    line-height: 1.4;
-    padding-bottom: 2rem;
-  }
+h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  text-align: left;
+  color: var(--ink);
+  padding: 0 0 0.5rem;
+}
 
-  hr {
-    border: none;
-    border-top: 1px solid var(--hairline);
-    width: 64px;
-    margin: 0 auto 2.5rem;
-  }
+.subtitle {
+  text-align: left;
+  color: var(--ink-soft);
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  padding-bottom: 2rem;
+}
 
-  /* Body copy */
-  main {
-    max-width: 640px;
-    margin: 0 auto;
-    padding: 0 1.5rem 4rem;
-  }
+hr {
+  border: none;
+  border-top: 1px solid var(--hairline);
+  width: 64px;
+  margin: 0 0 2.5rem;
+}
 
-  main p {
-    font-size: 1.05rem;
-    color: var(--ink);
-    margin-bottom: 1.25rem;
-  }
+main {
+  max-width: 640px;
+  margin: 0;
+  padding: 0;
+}
 
-  main p:last-child {
-    margin-bottom: 0;
-  }
+main p {
+  font-size: 1.05rem;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+  
 </style>
 </head>
 <body>
