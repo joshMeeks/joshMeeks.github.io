@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --cream: #FAF8F4;
@@ -16,7 +17,11 @@
     --navy: #1B3A5C;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
   body {
     background: var(--cream);
@@ -104,6 +109,15 @@
     gap: 0.9rem;
   }
 
+  /* Title and Learn More button on the same line */
+  .project-title-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
   .project-content h2 {
     font-family: 'Libre Baskerville', serif;
     font-weight: 700;
@@ -116,19 +130,43 @@
     color: var(--ink);
   }
 
+  /* Learn More buttons reduced by 25% */
+  .learn-more {
+    font-size: 0.75rem;
+    padding: 0.525rem 1.6875rem;
+    border-width: 2px;
+    border-radius: 6px;
+    flex-shrink: 0;
+  }
+
   /* Stack image above content on narrow screens */
   @media (max-width: 640px) {
     .project-row {
       flex-direction: column;
       gap: 1.25rem;
     }
+
     .project-image,
     .project-content {
       width: 100%;
     }
+
+    .project-title-row {
+      align-items: flex-start;
+    }
+
+    .project-content h2 {
+      font-size: 1.2rem;
+    }
+
+    .learn-more {
+      font-size: 0.7rem;
+      padding: 0.45rem 1.25rem;
+    }
   }
 </style>
 </head>
+
 <body>
 
   <div class="top-bar"></div>
@@ -143,56 +181,80 @@
 
     <div class="project-row">
       <img class="project-image" src="PCBReflowOven.jpg" alt="PCB Reflow Oven">
+
       <div class="project-content">
-        <h2>PCB Reflow Oven</h2>
+        <div class="project-title-row">
+          <h2>PCB Reflow Oven</h2>
+          <a class="btn learn-more" href="PCBReflowOven.html">Learn More</a>
+        </div>
+
         <p>
           A brief description of the PCB Reflow Oven project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
         </p>
-        <a class="btn" href="PCBReflowOven.html">Learn More</a>
       </div>
     </div>
+
 
     <div class="project-row">
       <img class="project-image" src="L1FlightComputer.jpg" alt="L1 Flight Computer">
+
       <div class="project-content">
-        <h2>L1 Flight Computer</h2>
+        <div class="project-title-row">
+          <h2>L1 Flight Computer</h2>
+          <a class="btn learn-more" href="UNRLiquidRocketTeam.html">Learn More</a>
+        </div>
+
         <p>
           A brief description of the L1 Flight Computer project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
         </p>
-        <a class="btn" href="UNRLiquidRocketTeam.html">Learn More</a>
       </div>
     </div>
+
 
     <div class="project-row">
       <img class="project-image" src="LiquidRocket.jpg" alt="UNR Liquid Rocket Team">
+
       <div class="project-content">
-        <h2>UNR Liquid Rocket Team</h2>
+        <div class="project-title-row">
+          <h2>UNR Liquid Rocket Team</h2>
+          <a class="btn learn-more" href="UNRLiquidRocketTeam.html">Learn More</a>
+        </div>
+
         <p>
           A brief description of the PCB Reflow Oven project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
         </p>
-        <a class="btn" href="UNRLiquidRocketTeam.html">Learn More</a>
       </div>
     </div>
+
 
     <div class="project-row">
       <img class="project-image" src="KNSOProp.jpg" alt="KNSO / KNSB Solid Rocket Propellants">
+
       <div class="project-content">
-        <h2>KNSO / KNSB Solid Rocket Propellants</h2>
+        <div class="project-title-row">
+          <h2>KNSO / KNSB Solid Rocket Propellants</h2>
+          <a class="btn learn-more" href="KNSOKNSBSolidRocketPropellants.html">Learn More</a>
+        </div>
+
         <p>
           A brief description of the KNSO / KNSB Solid Rocket Propellants project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
         </p>
-        <a class="btn" href="KNSOKNSBSolidRocketPropellants.html">Learn More</a>
       </div>
     </div>
 
-     <div class="project-row">
+
+    <div class="project-row">
       <img class="project-image" src="L1L2Rocket.jpg" alt="L1 / L2 Rocket">
+
       <div class="project-content">
-        <h2>L1 / L2 Rocket</h2>
+        <div class="project-title-row">
+          <h2>L1 / L2 Rocket</h2>
+          <a class="btn learn-more" href="L1L2Rocket.html">Learn More</a>
+        </div>
+
         <p>
           A brief description of the L1 / L2 Rocket project goes here — what it is, what problem it solves, and any standout details worth a quick mention.
         </p>
-        <a class="btn" href="L1L2Rocket.html">Learn More</a>
       </div>
     </div>
 
