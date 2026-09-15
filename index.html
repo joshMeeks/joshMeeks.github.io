@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
   :root {
     --cream: #FAF8F4;
@@ -16,7 +18,11 @@
     --navy: #1B3A5C;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
   body {
     background: var(--cream);
@@ -25,7 +31,7 @@
     line-height: 1.6;
   }
 
-  /* Banner — 1584x396 (LinkedIn banner ratio, 4:1) */
+  /* Banner */
   .banner {
     width: 100%;
     aspect-ratio: 4 / 1;
@@ -34,13 +40,38 @@
     border-bottom: 16px solid var(--navy);
   }
 
-  /* Buttons row, between the banner divider and the name */
+  /* Main content */
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 3rem 5rem;
+  }
+
+  h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    text-align: left;
+    color: var(--ink);
+    padding: 0 0 0.5rem;
+  }
+
+  .subtitle {
+    text-align: left;
+    color: var(--ink-soft);
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    padding-bottom: 1.5rem;
+  }
+
+  /* Buttons directly below subtitle */
   .button-row {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 1.5rem;
     flex-wrap: wrap;
-    padding: 2rem 1.5rem 0;
+    padding: 0 0 2rem;
   }
 
   .btn {
@@ -63,72 +94,56 @@
     color: var(--cream);
   }
 
-  /* Title directly under banner, centered */
-.content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 4rem 3rem 5rem;
-}
+  hr {
+    border: none;
+    border-top: 1px solid var(--hairline);
+    width: 64px;
+    margin: 0 0 2.5rem;
+  }
 
-h1 {
-  font-family: 'Libre Baskerville', serif;
-  font-weight: 700;
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  text-align: left;
-  color: var(--ink);
-  padding: 0 0 0.5rem;
-}
+  main {
+    max-width: 640px;
+    margin: 0;
+    padding: 0;
+  }
 
-.subtitle {
-  text-align: left;
-  color: var(--ink-soft);
-  font-size: 1rem;
-  letter-spacing: 0.02em;
-  line-height: 1.4;
-  padding-bottom: 2rem;
-}
-
-hr {
-  border: none;
-  border-top: 1px solid var(--hairline);
-  width: 64px;
-  margin: 0 0 2.5rem;
-}
-
-main {
-  max-width: 640px;
-  margin: 0;
-  padding: 0;
-}
-
-main p {
-  font-size: 1.05rem;
-  color: var(--ink);
-  margin-bottom: 1.25rem;
-}
-  
+  main p {
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
 </style>
 </head>
+
 <body>
 
   <img class="banner" src="banner.jpg" alt="Banner image">
 
-  <nav class="button-row">
-    <a class="btn" href="/projects/">Projects</a>
-    <a class="btn" href="/resume/">Resume</a>
-    <a class="btn" href="/Cassette/">Cassette Test</a>
-  </nav>
+  <div class="content">
 
-  <div class="content"> 
     <h1>Hey, I'm Joshua Meeks</h1>
-    <p class="subtitle">B.S. Mechanical Engineering - Graduating December 2026<br>Mechanical Engineering Intern - Digital Solid State Propulsion<br>Vice President - UNR Aerospace Club</p>
-  <hr>
 
-  <main>
-    <p>
-      I am in my final semester of Mechanical Engineering at the University of Nevada, Reno. Teamwork, teamwork, teamwork. If there is one thing I have learned throughout many stressful projects is that team work really does make the dream work. A good team member has your back when you struggle and is able to push you when you need motivation. Any tough job is a 1000x easier when you have your team by your side. At some point I looked up at the stars at night and got goosebumps thinking about the possibilities and unknowns above my head. While I may never get to see the stars myself, I can at least put all of my efforts towards the making rocket propulsion safer and more efficient. I have been working with various monopropellant and bipropellant solid and liquid rockets and gas generators for nearly two years now and I hope to continue down this path.
+    <p class="subtitle">
+      B.S. Mechanical Engineering - Graduating December 2026<br>
+      Mechanical Engineering Intern - Digital Solid State Propulsion<br>
+      Vice President - UNR Aerospace Club
     </p>
-  </main>
+
+    <nav class="button-row">
+      <a class="btn" href="/projects/">Projects</a>
+      <a class="btn" href="/resume/">Resume</a>
+      <a class="btn" href="/Cassette/">Cassette Test</a>
+    </nav>
+
+    <hr>
+
+    <main>
+      <p>
+        I am in my final semester of Mechanical Engineering at the University of Nevada, Reno. Teamwork, teamwork, teamwork. If there is one thing I have learned throughout many stressful projects is that team work really does make the dream work. A good team member has your back when you struggle and is able to push you when you need motivation. Any tough job is a 1000x easier when you have your team by your side. At some point I looked up at the stars at night and got goosebumps thinking about the possibilities and unknowns above my head. While I may never get to see the stars myself, I can at least put all of my efforts towards the making rocket propulsion safer and more efficient. I have been working with various monopropellant and bipropellant solid and liquid rockets and gas generators for nearly two years now and I hope to continue down this path.
+      </p>
+    </main>
+
+  </div>
 
 </body>
 </html>
